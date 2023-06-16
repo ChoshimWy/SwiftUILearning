@@ -30,12 +30,13 @@ struct CurveTabBar: View {
         )
         .overlay(
             Circle()
-                .fill(backgroudColor)
+                .fill(.orange)
                 .frame(width: 10, height: 10)
                 .offset(x: curvePoint - 20)
             , alignment: .bottomLeading
         )
         .cornerRadius(30)
+        .shadow(color: Color.black.opacity(0.1), radius: 3)
         .padding(.horizontal)
     }
     
