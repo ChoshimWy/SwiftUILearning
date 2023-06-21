@@ -12,5 +12,7 @@ class DrawerViewModel: ObservableObject {
     @Published var selectedButton = "house"
     
     @Published var showDrawer = false
+    
+    var items = ["house", "bookmark", "message", "person"]
 }
 

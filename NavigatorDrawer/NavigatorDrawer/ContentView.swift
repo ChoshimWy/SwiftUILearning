@@ -11,8 +11,7 @@ struct ContentView: View {
     
     @StateObject var viewModel = DrawerViewModel()
     @Namespace var animation
-    
-    private var items = ["house", "bookmark", "message", "person"]
+    @State private var showDetailModal = false
     
     init() {
         UITabBar.appearance().isHidden = true
@@ -20,22 +19,32 @@ struct ContentView: View {
     
     var body: some View {
         HStack(spacing: 0) {
-            Drawer(animation: animation)
+            Drawer(width: 250) {
+                LeftView { item in
+                    if (viewModel.items.contains(item)) {
+                        viewModel.selectedButton = item;
+                    } else {
+                       showDetailModal = true
+                    }
+                    viewModel.showDrawer.toggle()
+                }
+            }
+            
             ZStack {
                 NavigationView {
                     VStack {
                         TabView(selection: $viewModel.selectedButton) {
                             CatalogueView()
-                                .tag(items[0])
+                                .tag(viewModel.items[0])
                             
                             OrdersView()
-                                .tag(items[1])
+                                .tag(viewModel.items[1])
                             
                             FavouritesView()
-                                .tag(items[2])
+                                .tag(viewModel.items[2])
                             
                             MineView()
-                                .tag(items[3])
+                                .tag(viewModel.items[3])
                         }
                         .navigationTitle(viewModel.selectedButton)
                         .navigationBarTitleDisplayMode(.automatic)
@@ -53,12 +62,15 @@ struct ContentView: View {
                                 
                             }
                         }
-                        .ignoresSafeArea()
+//                        .ignoresSafeArea()
                         
-                        CurveTabBar(selected: $viewModel.selectedButton, items: items)
+                        CurveTabBar(selected: $viewModel.selectedButton, items: viewModel.items)
                     }
                 }
                 .frame(width: UIScreen.main.bounds.width)
+                .fullScreenCover(isPresented: $showDetailModal) {
+                    DetailView()
+                }
                 
                 /// 半透明遮罩
                 Color.black.opacity(viewModel.showDrawer ? 0.5:0)
@@ -70,10 +82,14 @@ struct ContentView: View {
                         }
                     }
             }
-            
         }
-        .frame(width: UIScreen.main.bounds.width)
         .offset(x: viewModel.showDrawer ? 125:-125)
+//        .gesture(
+//            DragGesture()
+//                .onChanged({ value in
+//                    print("\(value.translation)")
+//                })
+//        )
         .environmentObject(viewModel)
     }
 }

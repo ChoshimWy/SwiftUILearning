@@ -19,25 +19,25 @@ struct CurveTabBar: View {
     
     var body: some View {
         HStack(spacing: 0) {
-            ForEach(items, id: \.self) { tab in
-                CurveTabBarButton(image: tab, selected: $selected, tabPoints: $tabPoints)
-            }
-        }
-        .padding()
-        .background(
-            backgroudColor
-                .clipShape(TabCurveShape(tabPoint: curvePoint - 15))
-        )
-        .overlay(
-            Circle()
-                .fill(.orange)
-                .frame(width: 10, height: 10)
-                .offset(x: curvePoint - 20)
-            , alignment: .bottomLeading
-        )
-        .cornerRadius(30)
-        .shadow(color: Color.black.opacity(0.1), radius: 3)
-        .padding(.horizontal)
+           ForEach(items, id: \.self) { tab in
+               CurveTabBarButton(image: tab, selected: $selected, tabPoints: $tabPoints)
+           }
+       }
+       .padding()
+       .background(
+           backgroudColor
+               .clipShape(TabCurveShape(tabPoint: curvePoint - 15))
+       )
+       .overlay(
+           Circle()
+               .fill(.orange)
+               .frame(width: 10, height: 10)
+               .offset(x: curvePoint - 20)
+           , alignment: .bottomLeading
+       )
+       .cornerRadius(30)
+       .shadow(color: Color.black.opacity(0.1), radius: 3)
+       .padding(.horizontal)
     }
     
     var curvePoint: CGFloat {

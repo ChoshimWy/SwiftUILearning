@@ -11,23 +11,62 @@ struct DetailView: View {
     
     @Environment(\.dismiss) var dismiss
     
+    @State var selected: String = "house"
+    private var items = ["house", "bookmark", "message", "person"]
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            .navigationTitle("详情")
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationBarBackButtonHidden(true)
-            .toolbar {
-                ToolbarItem(placement: .navigation) {
-                    Button {
-                        dismiss()
-                    } label: {
-                        Image(systemName: "chevron.backward")
-                            .frame(width: 36, height: 36)
-                            .foregroundColor(.black)
-                    }
+        //        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        //            .navigationTitle("详情")
+        //            .navigationBarTitleDisplayMode(.inline)
+        //            .navigationBarBackButtonHidden(true)
+        //            .toolbar {
+        //                ToolbarItem(placement: .navigation) {
+        //                    Button {
+        //                        dismiss()
+        //                    } label: {
+        //                        Image(systemName: "chevron.backward")
+        //                            .frame(width: 36, height: 36)
+        //                            .foregroundColor(.black)
+        //                    }
+        //                }
+        //            }
+        //            .onTapGesture {
+        //                dismiss()
+        //            }
+        
+        VStack {
+            TabView(selection: $selected) {
+                CatalogueView()
+                    .tag(items[0])
+                
+                OrdersView()
+                    .tag(items[1])
+                
+                FavouritesView()
+                    .tag(items[2])
+                
+                MineView()
+                    .tag(items[3])
+            }
+            
+            CurveTabBar(selected: $selected, items: items)
+        }
+//        .navigationTitle("详情")
+//        .navigationBarTitleDisplayMode(.inline)
+//        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .navigation) {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "chevron.backward")
+                        .frame(width: 36, height: 36)
+                        .foregroundColor(.black)
                 }
             }
-    }
+        }
+        .frame(width: UIScreen.main.bounds.width)
+    } 
 }
 
 struct DetailView_Previews: PreviewProvider {

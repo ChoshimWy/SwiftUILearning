@@ -7,22 +7,21 @@
 
 import SwiftUI
 
-struct Drawer: View {
+struct Drawer<Content: View>: View {
     
-    @EnvironmentObject var viewModel: DrawerViewModel
+    private let content: () -> Content
+    private let width: CGFloat
     
-    var animation: Namespace.ID
+    init(width: CGFloat = 250, @ViewBuilder content: @escaping () -> Content) {
+        self.width = width
+        self.content = content
+    }
     
     var body: some View {
         VStack {
-            Color.orange
-                .ignoresSafeArea(.all)
+            content()
         }
-        .frame(width: 250)
-        .background(
-            Color.orange
-                .ignoresSafeArea(.all, edges: .vertical)
-        )
+        .frame(width: width)
     }
 }
 

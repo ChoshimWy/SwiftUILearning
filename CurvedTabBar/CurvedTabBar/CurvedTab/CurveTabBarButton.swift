@@ -16,7 +16,7 @@ struct CurveTabBarButton: View {
     var body: some View {
         GeometryReader { proxy -> AnyView in
             let midX = proxy.frame(in: .global).midX
-            
+            print("--- \(midX) -- \(proxy.frame(in: .global))")
             DispatchQueue.main.async {
                 if tabPoints.count <= 4 {
                     tabPoints.append(midX)

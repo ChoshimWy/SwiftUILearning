@@ -23,6 +23,7 @@
 		84688FA62A3C5FC40020C687 /* TabCurveShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84688FA32A3C5FC40020C687 /* TabCurveShape.swift */; };
 		84688FA72A3C5FC40020C687 /* CurveTabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84688FA42A3C5FC40020C687 /* CurveTabBarButton.swift */; };
 		84688FA82A3C5FC40020C687 /* CurveTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84688FA52A3C5FC40020C687 /* CurveTabBar.swift */; };
+		84A6B2EE2A40514D000459F8 /* LeftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A6B2ED2A40514D000459F8 /* LeftView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		84688FA32A3C5FC40020C687 /* TabCurveShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabCurveShape.swift; path = ../../../CurvedTabBar/CurvedTabBar/CurvedTab/TabCurveShape.swift; sourceTree = "<group>"; };
 		84688FA42A3C5FC40020C687 /* CurveTabBarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurveTabBarButton.swift; path = ../../../CurvedTabBar/CurvedTabBar/CurvedTab/CurveTabBarButton.swift; sourceTree = "<group>"; };
 		84688FA52A3C5FC40020C687 /* CurveTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurveTabBar.swift; path = ../../../CurvedTabBar/CurvedTabBar/CurvedTab/CurveTabBar.swift; sourceTree = "<group>"; };
+		84A6B2ED2A40514D000459F8 /* LeftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				84688F9A2A3C0E450020C687 /* FavouritesView.swift */,
 				84688F9E2A3C0E560020C687 /* MineView.swift */,
 				84688FA02A3C594C0020C687 /* DetailView.swift */,
+				84A6B2ED2A40514D000459F8 /* LeftView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				84688FA12A3C594C0020C687 /* DetailView.swift in Sources */,
 				84688F7E2A3C021B0020C687 /* NavigatorDrawerApp.swift in Sources */,
 				84688FA72A3C5FC40020C687 /* CurveTabBarButton.swift in Sources */,
+				84A6B2EE2A40514D000459F8 /* LeftView.swift in Sources */,
 				84688F992A3C0E3B0020C687 /* OrdersView.swift in Sources */,
 				84688F9F2A3C0E560020C687 /* MineView.swift in Sources */,
 				84688F972A3C0E300020C687 /* CatalogueView.swift in Sources */,
